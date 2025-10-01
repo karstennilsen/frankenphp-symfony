@@ -34,7 +34,7 @@ class Runner implements RunnerInterface
 
         $handler = function () use ($server, &$sfRequest, &$sfResponse, $xdebugConnectToClient): void {
             // Connect to the Xdebug client if it's available
-            if ($xdebugConnectToClient) {
+            if ($xdebugConnectToClient && isset($_COOKIE['XDEBUG_SESSION'])) {
                 xdebug_connect_to_client();
             }
 
